@@ -1,0 +1,226 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: Poppins;
+}
+
+@font-face {
+  font-family: "Poppins Bold";
+  src: url(./Poppins/Poppins-Bold.ttf);
+}
+@font-face {
+  font-family: "Poppins ExtraBold";
+  src: url(./Poppins/Poppins-ExtraBold.ttf);
+}
+@font-face {
+  font-family: "Poppins";
+  src: url(./Poppins/Poppins-Medium.ttf);
+}
+
+header {
+  margin: 1.5rem;
+  margin-top: 2rem;
+}
+
+header h1 {
+  font-family: Poppins Bold;
+  font-size: 3rem;
+  margin: 0;
+}
+header h3 {
+  font-size: 1rem;
+  font-weight: 100;
+  margin: 0;
+}
+
+header img {
+  margin: 1.5rem auto;
+  width: 100%;
+}
+
+#relevantUpdates {
+  margin-left: 1.5rem;
+}
+
+#container {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  height: 15rem;
+}
+#contanier::-webkit-scrollbar {
+  display: none;
+}
+
+.updates {
+  margin-right: 1.5rem;
+  min-width: 15rem;
+  background-image: url(/static/Medias/orange-yellow.png);
+  border-radius: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.updates h1 {
+  font-family: Poppins ExtraBold;
+  color: white;
+  font-size: 3rem;
+  text-align: center;
+}
+
+#advisories {
+  margin: 5rem 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#advisories img {
+  width: 85vw;
+  z-index: -1;
+  position: absolute;
+}
+
+#info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 1.5rem;
+}
+
+#seQRCode,
+#Places {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;
+}
+
+#seQRCode img {
+  width: 40vw;
+  position: absolute;
+  z-index: -1;
+}
+#seQRCode h1,
+#Places h1 {
+  color: white;
+  z-index: 1;
+  text-align: center;
+}
+#Places img {
+  position: absolute;
+  width: 40vw;
+  height: 43vw;
+}
+
+.updateInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-color: white;
+  visibility: hidden;
+  z-index: -1;
+  position: fixed;
+  height: 80vh;
+  top: 10vh;
+  left: 10vw;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  width: 70vw;
+}
+.updateInfo h1 {
+  color: black;
+  font-size: 1.5rem;
+}
+.updateInfo img {
+  width: 70vw;
+  height: 30%;
+  border-radius: 1rem;
+}
+.updateInfo p {
+  font-size: 0.8rem;
+  text-align: justify;
+}
+
+#mask {
+  background-color: black;
+  z-index: 2;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.appearMask {
+  animation: appearCover 500ms ease-out forwards;
+}
+.disappearMask {
+  animation: disappearCover 500ms ease-out forwards;
+}
+
+.appearInfo {
+  animation: appearInfo 500ms ease-out forwards;
+}
+.disappearInfo {
+  animation: disappearInfo 500ms ease-out forwards;
+}
+
+@keyframes appearCover {
+  from {
+    opacity: 0;
+    visibility: hidden;
+  }
+  to {
+    opacity: 0.8;
+    visibility: visible;
+  }
+}
+
+@keyframes disappearCover {
+  from {
+    opacity: 0.8;
+    visibility: visible;
+  }
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@keyframes appearInfo {
+  from {
+    visibility: hidden;
+    width: 0;
+    height: 0;
+    z-index: -1;
+  }
+  to {
+    visibility: visible;
+    z-index: 2;
+    width: 70vw;
+    height: 80vh;
+  }
+}
+
+@keyframes disappearInfo {
+  0% {
+    visibility: visible;
+    z-index: 2;
+    width: 70vw;
+    height: 80vh;
+  }
+  20% {
+    visibility: hidden;
+    z-index: -1;
+  }
+  100% {
+    width: 0;
+    height: 0;
+  }
+}

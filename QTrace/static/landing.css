@@ -1,0 +1,16 @@
+#container {
+  text-align: center;
+}
+#logo,
+#tag {
+  margin: 0;
+}
+#landingImage {
+  display: block;
+  margin: 0 auto;
+  width: 80%;
+}
+
+#signup {
+  margin: 3rem auto;
+}

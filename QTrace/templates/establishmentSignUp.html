@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/establishmentSignUp.css">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>QTrace | Establishment Sign up</title>
+</head>
+<body onload="formatting();">
+    <section id="left">
+        <header id="greeting">
+            <nav><a id="QTraceLogo" href="/" style="color: black;">QTrace!</a></nav>
+            <img src="/static/Medias/establishment.svg" id="establishment">
+        </header>
+        <div id="errorMessage" style="color: red; font-size: 0.8rem; margin: 1.5rem;">{{error}}</div>
+        <form action="/establishmentCreate" method="POST">
+            <h1 id="logo">Establishment Sign up</h1>
+            <h3 id="tag">Operate your business with SeQRity and peace of mind. </h3>
+            <div id="name">
+                <h5 class="labels">Name</h5>
+                <input type="text" value="{{establishmentName}}" name="establishmentName" id="establishmentName" placeholder="Establishment Name" required>
+            </div>
+            <div id="address">
+                <h5 class="labels">Establishment Address</h5>
+                <input type="text" value="{{province}}" name="province" id="province" placeholder="Province" required>
+                <input type="text" value="{{city}}" name="city" id="city" placeholder="City" required>
+                <input type="text" value="{{brgy}}" name="brgy" id="brgy" placeholder="Brgy" required>
+                <input type="text" value="{{block}}" name="block" id="block" placeholder="Bldg./ Block" required>
+            </div>
+            <img src="/static/Medias/contactPerson.svg" id="contactSVG">
+            <h3 id="subMessage1" class="subMessage">We’ll let you know when you come into<br>Contact with an Infected Person</h3>
+            <div id="contactPerson">
+                <h5 class="labels">Contact Person</h5>
+                <input type="text" value="{{firstName}}" name="firstName" id="firstName" placeholder="First Name" required>
+                <input type="text" value="{{lastName}}" name="lastName" id="lasttName" placeholder="Last Name" required>
+            </div>
+            <img src="/static/Medias/establishmentAddress.svg" id="addressSVG">
+            <h3 id="subMessage2" class="subMessage">We’ll protect your data for you,<br>Don’t worry it’s seQR.</h3>
+            <div id="contactDetails">
+                <h5 class="labels">Contact Details</h5>
+                <input type="text" value="{{phoneNumber}}" name="phoneNumber" id="phoneNumber" placeholder="Phone Number" required>
+                <input type="text" value="{{landLineNumber}}" name="landLineNumber" id="landLineNumber" placeholder="Landline Number" required>
+                <input type="email" name="email" id="email" placeholder="Email" required>
+            </div>
+            <img src="/static/Medias/establishmentAccount.svg" id="accountSVG">
+            <h3 id="subMessage3" class="subMessage">You’re almost there,<br>Access your data and more with<br>a QTrace! Account.
+                </h3>
+            <div id="account">
+                <h5 class="labels">Account</h5>
+                <div class="credentials" id="userNameSignUp">
+                    <label for="username"><img src="/static/Medias/Profile.png"></label>
+                    <input type="text" value="{{username}}" name="username" id="username" placeholder="Username" required>
+                </div>
+                <div class="credentials">
+                    <label for="password"><img src="/static/Medias/Lock.png"></label>
+                    <input type="password" name="password" id="password" placeholder="Pasword" required>
+                </div>
+                <div class="credentials">
+                    <label for="repeatPassword"><img src="/static/Medias/Lock.png"></label>
+                    <input type="password" name="repeatPassword" id="repeatPassword" placeholder="Repeat Password" required>
+                </div>
+            </div>
+            <p>By signing up you agree with our <a href="#">Data Privacy Consent</a> in accordance to the <a href="#">Data Privacy Act of 2012.</a></p>
+    
+            <div id="buttons">
+                <input type="submit" value="Sign up" id="signup">
+                <a href="/"><div id="signin">Sign In</div></a>
+            </div>
+        </form>
+        <div id="signinMessage">Already have an account?<a href="/"> Sign in instead!</a> </div> 
+    </section>
+    <section id="right">
+
+    </section>
+    <script src="/static/establishmentSignUp.js"></script>
+</body>
+</html>

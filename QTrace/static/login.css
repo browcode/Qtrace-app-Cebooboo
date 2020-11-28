@@ -1,0 +1,65 @@
+header {
+  text-align: center;
+}
+
+#logo,
+#tag {
+  margin: 0;
+}
+
+header img {
+  display: block;
+  margin: 1.5rem auto 0 auto;
+  width: 75%;
+  height: 15rem;
+}
+
+#userName,
+#passWord {
+  background-color: #eff0f6;
+  border-radius: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  padding-left: 1rem;
+}
+
+#logInField {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2rem 0;
+  height: 9rem;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#buttons {
+  height: 7rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: rem;
+}
+
+@media only screen and (min-width: 600px) {
+  header img {
+    border-radius: 5rem;
+  }
+  #signin,
+  #signup {
+    width: 20vw;
+  }
+  #signin:hover {
+    cursor: pointer;
+  }
+  #buttons {
+    margin-top: 2rem;
+  }
+}

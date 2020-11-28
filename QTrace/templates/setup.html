@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/setup.css">
+    <title>QTrace | Setup</title>
+</head>
+<body>
+    <header id="greeting">
+        <h1>QTrace!</h1>
+        <h3>A smarter way to deal with outbreaks</h3>
+        <img style="display: block; margin: 0 auto;" src="/static/Medias/QRCodes/{{code}}.png">
+    </header>
+    <div id="message">
+        <h5>Your data is safe. Heres what’s encoded in</h5>
+        <h1>Your seQR Code</h1>
+        <h5 style="text-align: center; font-size: 1rem;">{{code}}</h5>
+    </div>
+    <div id="buttons">
+        <form action="/downloadImage" method="post">
+            <input type="text" value="{{code}}" name="QRCode" style="visibility: hidden;">
+            <input type="submit" value="Save as PNG" id="saveImage">
+            <a href="/signUp"><div id="dashboard">Dashboard</div></a>
+        </form>
+    </div>
+</body>
+</html>

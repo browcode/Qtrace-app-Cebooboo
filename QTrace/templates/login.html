@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/login.css">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>QTrace | Login</title>
+    <script type="text/javascript"> 
+        window.history.forward(); 
+        function noBack() { 
+            window.history.forward(); 
+        } 
+    </script> 
+</head>
+<body onload="formatting();">
+    <header id="greeting">
+        <h1 id="logo">QTrace!</h1>
+        <h3 id="tag">A smarter way to deal with outbreaks</h3>
+        <img src="/static/Medias/orange-yellow.png">
+    </header>
+    <form action="/loggingIn" method="POST">
+        <div id="logInField">
+            <div id="userName">
+                <label for="username"><img src="/static/Medias/Profile.png"></label>
+                <input type="email" name="username" id="username" placeholder="Email" required>
+            </div>
+            <div id="passWord">
+                <label for="password"><img src="/static/Medias/Lock.png"></label>
+                <input type="password" name="password" id="password" placeholder="Password" required>
+            </div>
+        </div>
+        <div id="buttons">
+            <input type="submit" value="Sign in" id="signin">
+            <a href="/signUp"><div id="signup">Not yet Registered? Sign up!</div></a>
+        </div>
+    </form>
+    <script src="/static/login.js"></script>
+</body>
+</html>

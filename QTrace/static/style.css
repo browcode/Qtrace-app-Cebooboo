@@ -1,0 +1,272 @@
+/* FONT FAMILIES */
+@font-face {
+  font-family: "Poppins";
+  src: url(./Poppins/Poppins-Regular.ttf);
+}
+
+@font-face {
+  font-family: "Poppins Bold";
+  src: url(./Poppins/Poppins-Bold.ttf);
+}
+@font-face {
+  font-family: "Poppins ExtraBold";
+  src: url(./Poppins/Poppins-ExtraBold.ttf);
+}
+
+@font-face {
+  font-family: "Poppins Semibold";
+  src: url(./Poppins/Poppins-SemiBold.ttf);
+}
+
+/* Typograhic Configurations */
+
+.displayLargeBold {
+  font-family: Poppins Bold;
+  font-size: 4rem;
+  line-height: 4.12rem;
+  letter-spacing: 1px;
+}
+
+.displayMediumBold {
+  font-family: Poppins Bold;
+  font-size: 3rem;
+  letter-spacing: 1px;
+  line-height: 3.12rem;
+}
+
+.displaySmallBold {
+  font-family: Poppins Bold;
+  font-size: 2rem;
+  letter-spacing: 1px;
+  line-height: 2.125;
+}
+
+.displayLarge {
+  font-family: Poppins;
+  font-size: 4rem;
+  line-height: 5rem;
+  letter-spacing: 1px;
+}
+
+.displayMedium {
+  font-family: Poppins;
+  letter-spacing: 1px;
+  font-size: 3rem;
+  line-height: 3.12rem;
+}
+
+.displaySmall {
+  font-family: Poppins;
+  font-size: 2rem;
+  letter-spacing: 1px;
+  line-height: 2.12rem;
+}
+
+.textLarge {
+  font-family: Poppins;
+  font-size: 24px;
+  letter-spacing: 0.75px;
+  line-height: 2.38rem;
+}
+.textMedium {
+  font-family: Poppins;
+  font-size: 18px;
+  letter-spacing: 0.75px;
+  line-height: 2.13rem;
+}
+.textSmall {
+  font-family: Poppins;
+  font-size: 16px;
+  letter-spacing: 0.75px;
+  line-height: 1.75rem;
+}
+
+.textXSmall {
+  font-family: Poppins;
+  font-size: 14px;
+  letter-spacing: 0.25px;
+  line-height: 1.375rem;
+}
+
+.linkLarge {
+  font-family: Poppins Semibold;
+  font-size: 24px;
+  letter-spacing: 0.75px;
+  line-height: 2.375rem;
+}
+
+.linkMedium {
+  font-family: Poppins Semibold;
+  font-size: 18px;
+  letter-spacing: 0.75px;
+  line-height: 2.125rem;
+}
+
+.linkSmall {
+  font-family: Poppins Semibold;
+  font-size: 16px;
+  letter-spacing: 0.75px;
+  line-height: 1.75rem;
+}
+.linkXSmall {
+  font-family: Poppins Semibold;
+  font-size: 14px;
+  letter-spacing: 0.25px;
+  line-height: 1rem;
+}
+
+/* Mobile */
+.MdisplayLargeBold {
+  font-family: Poppins Bold;
+  font-size: 3rem;
+  letter-spacing: 1px;
+  line-height: 3.125rem;
+}
+
+.MdisplayMediumBold {
+  font-family: Poppins Bold;
+  font-size: 2rem;
+  letter-spacing: 1px;
+  line-height: 2.25rem;
+}
+
+.MdisplaySmallBold {
+  font-family: Poppins Bold;
+  font-size: 24px;
+  letter-spacing: 1px;
+  line-height: 2rem;
+}
+
+.MdisplayLarge {
+  font-family: Poppins;
+  font-size: 3rem;
+  letter-spacing: 1px;
+  line-height: 3.125rem;
+}
+
+.MdisplayMedium {
+  font-family: Poppins;
+  font-size: 2rem;
+  letter-spacing: 1px;
+  line-height: 2.25rem;
+}
+
+.MdisplaySmall {
+  font-family: Poppins;
+  font-size: 24px;
+  letter-spacing: 1px;
+  line-height: 2rem;
+}
+
+.MtextLarge {
+  font-family: Poppins;
+  font-size: 20px;
+  letter-spacing: 1px;
+  line-height: 2rem;
+}
+.MtextMedium {
+  font-family: Poppins;
+  font-size: 16px;
+  letter-spacing: 1px;
+  line-height: 1.75rem;
+}
+.MtextSmall {
+  font-family: Poppins;
+  font-size: 14px;
+  letter-spacing: 0.75px;
+  line-height: 1.5rem;
+}
+
+.MtextXSmall {
+  font-family: Poppins;
+  font-size: 13px;
+  letter-spacing: 0.25px;
+  line-height: 1.375rem;
+}
+
+.MlinkLarge {
+  font-family: Poppins Semibold;
+  font-size: 20px;
+  letter-spacing: 0.75px;
+  line-height: 2rem;
+}
+
+.MlinkMedium {
+  font-family: Poppins Semibold;
+  font-size: 16px;
+  letter-spacing: 0.75px;
+  line-height: 1.75rem;
+}
+
+.MlinkSmall {
+  font-family: Poppins Semibold;
+  font-size: 14px;
+  letter-spacing: 0.75px;
+  line-height: 1.625rem;
+}
+.MlinkXSmall {
+  font-family: Poppins Semibold;
+  font-size: 13px;
+  letter-spacing: 0.25px;
+  line-height: 1.375rem;
+}
+
+.primaryButton {
+  background-color: #5f2eea;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 3rem;
+  width: 80vw;
+  margin: 0 auto;
+  border-radius: 1.5rem;
+  color: white;
+  padding: 0;
+}
+
+.secondaryButton {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 2.5rem;
+  width: 78vw;
+  margin: 0 auto;
+  border-radius: 1.5rem;
+  border: 3px solid #5f2eea;
+  color: #5f2eea;
+  padding: 0;
+}
+
+/* Universal Formatting */
+
+a {
+  text-decoration: none;
+}
+body {
+  padding: 2rem;
+  margin: 0;
+}
+
+input {
+  border: none;
+  background-color: #eff0f6;
+  padding: 0;
+  padding-left: 1rem;
+  border-radius: 1rem;
+  display: block;
+  height: 4rem;
+  width: 90%;
+}
+input:focus {
+  outline: none;
+}
+
+@media only screen and (min-width: 600px) {
+  body {
+    margin: 0;
+    padding: 0;
+  }
+}

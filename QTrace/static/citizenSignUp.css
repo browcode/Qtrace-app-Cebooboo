@@ -1,0 +1,191 @@
+#citizen {
+  width: 100%;
+  display: block;
+  margin: 0 auto;
+}
+.labels {
+  color: #6e7191;
+  margin: 0;
+  margin-top: 2rem;
+}
+#logo,
+#tag {
+  margin: 0;
+}
+
+#name {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 13rem;
+}
+
+#address {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 23rem;
+  margin-bottom: 3rem;
+}
+#dob {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 8.5rem;
+  margin-bottom: 3rem;
+}
+
+#dobInputFields {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+#day,
+#month,
+#year {
+  width: 25vw;
+  text-align: center;
+  padding: 0;
+}
+
+#contactDetails {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 18rem;
+  margin-bottom: 3rem;
+}
+
+#account {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 18rem;
+  margin-bottom: 3rem;
+}
+
+.credentials {
+  display: flex;
+  align-items: center;
+  background-color: #eff0f6;
+  border-radius: 1rem;
+  padding-left: 0.5rem;
+}
+
+#buttons {
+  margin: 3rem 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#signup,
+#signin {
+  width: 80%;
+}
+#signup:hover,
+#signin:hover {
+  cursor: pointer;
+}
+
+img {
+  display: inline-block;
+  margin: 0 auto;
+  width: 100%;
+}
+.subMessage {
+  text-align: center;
+}
+
+nav {
+  display: none;
+}
+
+#signinMessage {
+  text-align: center;
+}
+
+@media only screen and (min-width: 600px) {
+  #logo {
+    position: absolute;
+    top: 7rem;
+    left: 5rem;
+  }
+  #tag {
+    position: absolute;
+    top: 12rem;
+    left: 5rem;
+  }
+  nav {
+    display: flex;
+    align-items: center;
+    background-color: #d9dbe9;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5rem;
+    padding-left: 2rem;
+    z-index: 2;
+  }
+  #citizen {
+    margin-top: 15rem;
+    display: inline-block;
+    text-align: left;
+    width: 60vw;
+  }
+
+  #left {
+    padding-left: 5rem;
+  }
+  #dob {
+    width: 90%;
+  }
+  #day,
+  #year,
+  #month {
+    width: 30%;
+    text-align: center;
+  }
+  #contactSVg {
+    position: absolute;
+    top: 45rem;
+    left: 68vw;
+    width: 30%;
+  }
+  #addressSVG {
+    position: absolute;
+    top: 80rem;
+    left: 68vw;
+    width: 30%;
+  }
+  #accountSVG {
+    position: absolute;
+    top: 115rem;
+    left: 68vw;
+    width: 30%;
+  }
+  #signinMessage {
+    margin-bottom: 5rem;
+  }
+  body {
+    display: grid;
+    grid-template-columns: 4fr 2fr;
+  }
+  .subMessage {
+    position: absolute;
+    top: 55;
+    left: 65vw;
+  }
+  #subMessage2 {
+    top: 100rem;
+    left: 75vw;
+  }
+  #subMessage3 {
+    top: 130rem;
+    left: 75vw;
+  }
+}
