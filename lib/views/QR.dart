@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:qtrace_app/views/dashboard.dart';
 
 class QR extends StatefulWidget {
   @override
@@ -98,18 +99,20 @@ class _QRState extends State<QR> {
                 width: 208,
                 height: 40,
                 child: RaisedButton(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(40.0),
-                      side: BorderSide(color: Theme.of(context).primaryColor),
-                    ),
-                    child: Container(
-                      child: Text('Dashboard',
-                          textAlign: TextAlign.center,
-                          style: Theme.of(context).textTheme.bodyText1),
-                    ),
-                    onPressed: () {
-                      Navigator.pop(context);
-                    }),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(40.0),
+                    side: BorderSide(color: Theme.of(context).primaryColor),
+                  ),
+                  child: Container(
+                    child: Text('Dashboard',
+                        textAlign: TextAlign.center,
+                        style: Theme.of(context).textTheme.bodyText1),
+                  ),
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => Dashboard()));
+                  },
+                ),
               ),
             ),
           ],

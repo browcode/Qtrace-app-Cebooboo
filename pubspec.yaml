@@ -76,6 +76,12 @@ flutter:
     - assets/images/Tracer4.png
     - assets/images/QR.png
     - assets/images/Qtrace.png
+    - assets/images/ALERTS INBOX.png
+    - assets/images/Transmission Heatmap.png
+    - assets/images/QR1.png
+    - assets/images/VISIT ON WEB.png
+    - assets/images/SCANNER1.png
+    - assets/images/messages.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
