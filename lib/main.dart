@@ -22,16 +22,17 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         title: _title,
         theme: ThemeData(
-          primaryColor: HexColor('#5F2EEA'),
-          primaryColorDark: HexColor('#2A00A2'),
-          primaryColorLight: HexColor('#E4DAFF'),
+          primaryColor: HexColor('#EB0055'),
+          primaryColorDark: HexColor('#0096B7'),
+          primaryColorLight: HexColor('#5F2EEA'),
           secondaryHeaderColor: HexColor('#0096B7'),
           textTheme: TextTheme(
             headline1: TextStyle(
               color: Colors.black,
               fontFamily: 'PoppinsBold',
-              fontSize: 48.0,
-              letterSpacing: 2.0,
+              fontSize: 48,
+              wordSpacing: 0.4,
+              letterSpacing: 1.0,
             ),
             headline2: TextStyle(
               color: Colors.black,
@@ -43,7 +44,7 @@ class MyApp extends StatelessWidget {
               color: Colors.white,
               fontFamily: 'PoppinsRegular',
               fontWeight: FontWeight.w600,
-              fontSize: 15,
+              fontSize: 14,
             ),
             headline4: TextStyle(
               color: Colors.black,

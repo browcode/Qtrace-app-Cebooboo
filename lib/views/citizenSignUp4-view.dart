@@ -2,7 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:qtrace_app/views/QR.dart';
-import 'package:qtrace_app/views/welcome-view.dart';
+import 'package:qtrace_app/views/login-view.dart';
 
 class CitizenSignUp4 extends StatefulWidget {
   @override
@@ -10,6 +10,16 @@ class CitizenSignUp4 extends StatefulWidget {
 }
 
 class _CitizenSignUp4State extends State<CitizenSignUp4> {
+  bool _obscure = true;
+  bool _obscure1 = true;
+
+  final _formKey = GlobalKey<FormState>();
+  final _formKey1 = GlobalKey<FormState>();
+  final _formKey2 = GlobalKey<FormState>();
+
+  String _username = '';
+  String _password = '';
+  String _repassword = '';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -70,6 +80,7 @@ class _CitizenSignUp4State extends State<CitizenSignUp4> {
               SizedBox(
                 height: 64,
                 child: Form(
+                  key: _formKey,
                   child: TextFormField(
                     decoration: InputDecoration(
                       prefixIcon: Icon(Icons.person_outline_rounded),
@@ -80,6 +91,16 @@ class _CitizenSignUp4State extends State<CitizenSignUp4> {
                         borderSide: BorderSide(),
                       ),
                     ),
+                    validator: (val) {
+                      if (val.isNotEmpty) {
+                        return null;
+                      } else {
+                        return 'Enter a Valid Username';
+                      }
+                    },
+                    onChanged: (val) {
+                      setState(() => _username = val);
+                    },
                   ),
                 ),
               ),
@@ -87,8 +108,20 @@ class _CitizenSignUp4State extends State<CitizenSignUp4> {
               SizedBox(
                 height: 64,
                 child: Form(
+                  key: _formKey1,
                   child: TextFormField(
+                    obscureText: _obscure,
                     decoration: InputDecoration(
+                      suffixIcon: GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            _obscure = !_obscure;
+                          });
+                        },
+                        child: Icon(
+                          _obscure ? Icons.visibility : Icons.visibility_off,
+                        ),
+                      ),
                       prefixIcon: Icon(Icons.lock_outline_rounded),
                       labelText: 'Password',
                       fillColor: HexColor('#EFF0F6'),
@@ -97,6 +130,16 @@ class _CitizenSignUp4State extends State<CitizenSignUp4> {
                         borderSide: BorderSide(),
                       ),
                     ),
+                    validator: (val) {
+                      if (val.isNotEmpty && val.length >= 8) {
+                        return null;
+                      } else {
+                        return 'Password must be 8+ chars long';
+                      }
+                    },
+                    onChanged: (val) {
+                      setState(() => _password = val);
+                    },
                   ),
                 ),
               ),
@@ -104,8 +147,20 @@ class _CitizenSignUp4State extends State<CitizenSignUp4> {
               SizedBox(
                 height: 64,
                 child: Form(
+                  key: _formKey2,
                   child: TextFormField(
+                    obscureText: _obscure1,
                     decoration: InputDecoration(
+                      suffixIcon: GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            _obscure1 = !_obscure1;
+                          });
+                        },
+                        child: Icon(
+                          _obscure1 ? Icons.visibility : Icons.visibility_off,
+                        ),
+                      ),
                       prefixIcon: Icon(Icons.lock_outline_rounded),
                       labelText: 'Repeat Password',
                       fillColor: HexColor('#EFF0F6'),
@@ -114,6 +169,13 @@ class _CitizenSignUp4State extends State<CitizenSignUp4> {
                         borderSide: BorderSide(),
                       ),
                     ),
+                    validator: (val) {
+                      if (val == _password) {
+                        return null;
+                      } else {
+                        return 'Password does not match';
+                      }
+                    },
                   ),
                 ),
               ),
@@ -132,9 +194,16 @@ class _CitizenSignUp4State extends State<CitizenSignUp4> {
                           side: BorderSide(color: Colors.grey),
                         ),
                         child: Container(
-                          child: Text('Back',
-                              textAlign: TextAlign.center,
-                              style: Theme.of(context).textTheme.bodyText1),
+                          child: Text(
+                            'Back',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: Theme.of(context).primaryColorDark,
+                              fontFamily: 'PoppinsRegular',
+                              fontWeight: FontWeight.w600,
+                              fontSize: 14,
+                            ),
+                          ),
                         ),
                         onPressed: () {
                           Navigator.pop(context);
@@ -147,18 +216,25 @@ class _CitizenSignUp4State extends State<CitizenSignUp4> {
                     child: RaisedButton(
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(40.0),
-                          side:
-                              BorderSide(color: Theme.of(context).primaryColor),
+                          side: BorderSide(
+                              color: Theme.of(context).primaryColorDark),
                         ),
-                        color: Theme.of(context).primaryColor,
+                        color: Theme.of(context).primaryColorDark,
                         child: Container(
                           child: Text('Sign Up',
                               textAlign: TextAlign.center,
                               style: Theme.of(context).textTheme.headline3),
                         ),
                         onPressed: () => {
-                              Navigator.push(context,
-                                  MaterialPageRoute(builder: (context) => QR()))
+                              if (_formKey.currentState.validate() &&
+                                  _formKey1.currentState.validate() &&
+                                  _formKey2.currentState.validate())
+                                {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => QR()))
+                                }
                             }),
                   ),
                   SizedBox(width: 21),
@@ -175,7 +251,7 @@ class _CitizenSignUp4State extends State<CitizenSignUp4> {
                         TextSpan(
                             text: ' Sign In',
                             style: TextStyle(
-                              color: Theme.of(context).primaryColor,
+                              color: Theme.of(context).primaryColorDark,
                               fontFamily: 'PoppinsRegular',
                               fontWeight: FontWeight.w700,
                               fontSize: 13,
@@ -186,7 +262,7 @@ class _CitizenSignUp4State extends State<CitizenSignUp4> {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) => QR()));
+                                        builder: (context) => LogInView()));
                               }),
                         TextSpan(
                           text: ' Instead',

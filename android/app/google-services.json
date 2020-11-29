@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "30475961495",
+    "firebase_url": "https://qtrace-2063a.firebaseio.com",
+    "project_id": "qtrace-2063a",
+    "storage_bucket": "qtrace-2063a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:30475961495:android:9ddbe0b6e6d4b527e315d2",
+        "android_client_info": {
+          "package_name": "com.example.qtrace_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "30475961495-8cqlb98ss4bn9fd0mt5f4japugeui21p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC9K22g_Yi9eay0iFIx6QhBC5tJj8BeZr0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "30475961495-8cqlb98ss4bn9fd0mt5f4japugeui21p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:hexcolor/hexcolor.dart';
 import 'package:qtrace_app/views/establishmentSignUp4-view.dart';
+import 'package:string_validator/string_validator.dart';
 
 class EstablishmentSignUp3 extends StatefulWidget {
   @override
@@ -8,6 +8,12 @@ class EstablishmentSignUp3 extends StatefulWidget {
 }
 
 class _EstablishmentSignUp3State extends State<EstablishmentSignUp3> {
+  final _formKey = GlobalKey<FormState>();
+  final _formKey1 = GlobalKey<FormState>();
+
+  String _cntctNumber = '';
+  String _landNumber = '';
+  String _email = '';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,15 +56,25 @@ class _EstablishmentSignUp3State extends State<EstablishmentSignUp3> {
               SizedBox(
                 height: 64,
                 child: Form(
+                  key: _formKey,
                   child: TextFormField(
                     decoration: InputDecoration(
                       labelText: 'Contact Number',
-                      fillColor: HexColor('#EFF0F6'),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(16.0),
                         borderSide: BorderSide(),
                       ),
                     ),
+                    validator: (val) {
+                      if (val.isNotEmpty && isNumeric(val)) {
+                        return null;
+                      } else {
+                        return 'Enter a Valid Contact Number';
+                      }
+                    },
+                    onChanged: (val) {
+                      setState(() => _cntctNumber = val);
+                    },
                   ),
                 ),
               ),
@@ -68,13 +84,15 @@ class _EstablishmentSignUp3State extends State<EstablishmentSignUp3> {
                 child: Form(
                   child: TextFormField(
                     decoration: InputDecoration(
-                      labelText: 'Landline Number',
-                      fillColor: HexColor('#EFF0F6'),
+                      labelText: 'Landline Number (optional)',
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(16.0),
                         borderSide: BorderSide(),
                       ),
                     ),
+                    onChanged: (val) {
+                      setState(() => _landNumber = val);
+                    },
                   ),
                 ),
               ),
@@ -82,15 +100,25 @@ class _EstablishmentSignUp3State extends State<EstablishmentSignUp3> {
               SizedBox(
                 height: 64,
                 child: Form(
+                  key: _formKey1,
                   child: TextFormField(
                     decoration: InputDecoration(
                       labelText: 'Email',
-                      fillColor: HexColor('#EFF0F6'),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(16.0),
                         borderSide: BorderSide(),
                       ),
                     ),
+                    validator: (val) {
+                      if (isEmail(val)) {
+                        return null;
+                      } else {
+                        return 'Enter a Valid Email';
+                      }
+                    },
+                    onChanged: (val) {
+                      setState(() => _email = val);
+                    },
                   ),
                 ),
               ),
@@ -109,9 +137,16 @@ class _EstablishmentSignUp3State extends State<EstablishmentSignUp3> {
                           side: BorderSide(color: Colors.grey),
                         ),
                         child: Container(
-                          child: Text('Back',
-                              textAlign: TextAlign.center,
-                              style: Theme.of(context).textTheme.bodyText1),
+                          child: Text(
+                            'Back',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: Theme.of(context).primaryColor,
+                              fontFamily: 'PoppinsRegular',
+                              fontWeight: FontWeight.w600,
+                              fontSize: 14,
+                            ),
+                          ),
                         ),
                         onPressed: () {
                           Navigator.pop(context);
@@ -134,11 +169,15 @@ class _EstablishmentSignUp3State extends State<EstablishmentSignUp3> {
                               style: Theme.of(context).textTheme.headline3),
                         ),
                         onPressed: () => {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) =>
-                                          EstablishmentSignUp4()))
+                              if (_formKey.currentState.validate() &&
+                                  _formKey1.currentState.validate())
+                                {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              EstablishmentSignUp4()))
+                                }
                             }),
                   ),
                   SizedBox(width: 21),

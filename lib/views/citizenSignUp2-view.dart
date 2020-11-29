@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:qtrace_app/views/citizenSignUp3-view.dart';
+import 'package:string_validator/string_validator.dart';
 
 class CitizenSignUp2 extends StatefulWidget {
   @override
@@ -8,6 +9,13 @@ class CitizenSignUp2 extends StatefulWidget {
 }
 
 class _CitizenSignUp2State extends State<CitizenSignUp2> {
+  final _formKey = GlobalKey<FormState>();
+  final _formKey1 = GlobalKey<FormState>();
+
+  String _cntctNumber = '';
+  String _landNumber = '';
+  String _email = '';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,6 +58,7 @@ class _CitizenSignUp2State extends State<CitizenSignUp2> {
               SizedBox(
                 height: 64,
                 child: Form(
+                  key: _formKey,
                   child: TextFormField(
                     decoration: InputDecoration(
                       labelText: 'Contact Number',
@@ -59,6 +68,16 @@ class _CitizenSignUp2State extends State<CitizenSignUp2> {
                         borderSide: BorderSide(),
                       ),
                     ),
+                    validator: (val) {
+                      if (val.isNotEmpty && isNumeric(val)) {
+                        return null;
+                      } else {
+                        return 'Enter a Valid Contact Number';
+                      }
+                    },
+                    onChanged: (val) {
+                      setState(() => _cntctNumber = val);
+                    },
                   ),
                 ),
               ),
@@ -68,13 +87,16 @@ class _CitizenSignUp2State extends State<CitizenSignUp2> {
                 child: Form(
                   child: TextFormField(
                     decoration: InputDecoration(
-                      labelText: 'Landline Number',
+                      labelText: 'Landline Number (optional)',
                       fillColor: HexColor('#EFF0F6'),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(16.0),
                         borderSide: BorderSide(),
                       ),
                     ),
+                    onChanged: (val) {
+                      setState(() => _landNumber = val);
+                    },
                   ),
                 ),
               ),
@@ -82,6 +104,7 @@ class _CitizenSignUp2State extends State<CitizenSignUp2> {
               SizedBox(
                 height: 64,
                 child: Form(
+                  key: _formKey1,
                   child: TextFormField(
                     decoration: InputDecoration(
                       labelText: 'Email',
@@ -91,6 +114,16 @@ class _CitizenSignUp2State extends State<CitizenSignUp2> {
                         borderSide: BorderSide(),
                       ),
                     ),
+                    validator: (val) {
+                      if (isEmail(val)) {
+                        return null;
+                      } else {
+                        return 'Enter a Valid Email';
+                      }
+                    },
+                    onChanged: (val) {
+                      setState(() => _email = val);
+                    },
                   ),
                 ),
               ),
@@ -109,9 +142,16 @@ class _CitizenSignUp2State extends State<CitizenSignUp2> {
                           side: BorderSide(color: Colors.grey),
                         ),
                         child: Container(
-                          child: Text('Back',
-                              textAlign: TextAlign.center,
-                              style: Theme.of(context).textTheme.bodyText1),
+                          child: Text(
+                            'Back',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: Theme.of(context).primaryColorDark,
+                              fontFamily: 'PoppinsRegular',
+                              fontWeight: FontWeight.w600,
+                              fontSize: 14,
+                            ),
+                          ),
                         ),
                         onPressed: () {
                           Navigator.pop(context);
@@ -124,20 +164,25 @@ class _CitizenSignUp2State extends State<CitizenSignUp2> {
                     child: RaisedButton(
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(40.0),
-                          side:
-                              BorderSide(color: Theme.of(context).primaryColor),
+                          side: BorderSide(
+                              color: Theme.of(context).primaryColorDark),
                         ),
-                        color: Theme.of(context).primaryColor,
+                        color: Theme.of(context).primaryColorDark,
                         child: Container(
                           child: Text('Next',
                               textAlign: TextAlign.center,
                               style: Theme.of(context).textTheme.headline3),
                         ),
                         onPressed: () => {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => CitizenSignUp3()))
+                              if (_formKey.currentState.validate() &&
+                                  _formKey1.currentState.validate())
+                                {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              CitizenSignUp3()))
+                                }
                             }),
                   ),
                   SizedBox(width: 21),

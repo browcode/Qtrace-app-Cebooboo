@@ -1,21 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:qtrace_app/views/establishmentSignUp3-view.dart';
+import 'package:qtrace_app/views/establishmentSignUp2-view.dart';
+import 'package:qtrace_app/views/tracerSignUp2-view.dart';
+import 'package:string_validator/string_validator.dart';
 
-class EstablishmentSignUp2 extends StatefulWidget {
+class TracerSignUp1 extends StatefulWidget {
   @override
-  _EstablishmentSignUp2State createState() => _EstablishmentSignUp2State();
+  _TracerSignUp1State createState() => _TracerSignUp1State();
 }
 
-class _EstablishmentSignUp2State extends State<EstablishmentSignUp2> {
+class _TracerSignUp1State extends State<TracerSignUp1> {
   final _formKey = GlobalKey<FormState>();
   final _formKey1 = GlobalKey<FormState>();
   final _formKey2 = GlobalKey<FormState>();
 
-  String _province = '';
-  String _city = '';
-  String _brgy = '';
-  String _bldg = '';
+  String _lguName = '';
+  String _firstName = '';
+  String _lastName = '';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,43 +28,41 @@ class _EstablishmentSignUp2State extends State<EstablishmentSignUp2> {
           color: Colors.white,
           padding: EdgeInsets.symmetric(horizontal: 32),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Container(
-                padding: EdgeInsets.only(top: 61),
+                padding: EdgeInsets.only(top: 95),
                 child: SizedBox(
-                  width: 359.96,
-                  height: 196.03,
-                  child: Image.asset('assets/images/Establishment2.png',
+                  width: 344.24,
+                  height: 152.71,
+                  child: Image.asset('assets/images/Tracer1.png',
                       fit: BoxFit.contain),
                 ),
               ),
-              SizedBox(height: 11),
+              SizedBox(height: 24),
               SizedBox(
                   height: 32,
-                  child: Text('Establishment Sign Up',
+                  child: Text('Contact Tracer Sign Up',
                       style: Theme.of(context).textTheme.bodyText2)),
-              SizedBox(height: 10),
               SizedBox(
                 height: 48,
-                child: Text(
-                    'We\'ll protect your data for you,\nDon\'t worry its seQR.',
+                child: Text('We\'ll help you do your job',
                     style: Theme.of(context).textTheme.headline5),
               ),
-              SizedBox(height: 10),
+              SizedBox(height: 30),
               SizedBox(
-                height: 32,
-                child: Text('Establishment Address',
+                height: 18,
+                child: Text('LGU Name',
                     style: Theme.of(context).textTheme.headline6),
               ),
+              SizedBox(height: 16),
               SizedBox(
                 height: 64,
                 child: Form(
                   key: _formKey,
                   child: TextFormField(
                     decoration: InputDecoration(
-                      labelText: 'Province',
-                      fillColor: HexColor('#EFF0F6'),
+                      labelText: 'LGU name',
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(16.0),
                         borderSide: BorderSide(),
@@ -72,89 +72,74 @@ class _EstablishmentSignUp2State extends State<EstablishmentSignUp2> {
                       if (val.isNotEmpty) {
                         return null;
                       } else {
-                        return "Required";
+                        return 'Enter a LGU Name';
                       }
                     },
                     onChanged: (val) {
-                      setState(() => _province = val);
+                      setState(() => _lguName = val);
                     },
                   ),
                 ),
               ),
-              SizedBox(height: 10),
+              SizedBox(height: 24),
+              SizedBox(
+                height: 18,
+                child: Text('Contact Person',
+                    style: Theme.of(context).textTheme.headline6),
+              ),
+              SizedBox(height: 8),
               SizedBox(
                 height: 64,
                 child: Form(
                   key: _formKey1,
                   child: TextFormField(
                     decoration: InputDecoration(
-                      labelText: 'City',
-                      fillColor: HexColor('#EFF0F6'),
+                      labelText: 'First Name',
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(16.0),
                         borderSide: BorderSide(),
                       ),
                     ),
                     validator: (val) {
-                      if (val.isNotEmpty) {
+                      if (val.isNotEmpty && isAlpha(val) || val.contains(' ')) {
                         return null;
                       } else {
-                        return "Required";
+                        return 'Enter a Valid First Name';
                       }
                     },
                     onChanged: (val) {
-                      setState(() => _city = val);
+                      setState(() => _firstName = val);
                     },
                   ),
                 ),
               ),
-              SizedBox(height: 10),
+              SizedBox(height: 16),
               SizedBox(
                 height: 64,
                 child: Form(
                   key: _formKey2,
                   child: TextFormField(
                     decoration: InputDecoration(
-                      labelText: 'Brgy.',
-                      fillColor: HexColor('#EFF0F6'),
+                      labelText: 'Last Name',
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(16.0),
                         borderSide: BorderSide(),
                       ),
                     ),
                     validator: (val) {
-                      if (val.isNotEmpty) {
+                      if (val.isNotEmpty && isAlpha(val) || val.contains(' ')) {
                         return null;
                       } else {
-                        return "Required";
+                        return 'Enter a Valid Last Name';
                       }
                     },
                     onChanged: (val) {
-                      setState(() => _brgy = val);
+                      setState(() => _lastName = val);
                     },
                   ),
                 ),
               ),
-              SizedBox(height: 10),
-              SizedBox(
-                height: 64,
-                child: Form(
-                  child: TextFormField(
-                    decoration: InputDecoration(
-                      labelText: 'Bldg. / Block (optional)',
-                      fillColor: HexColor('#EFF0F6'),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(16.0),
-                        borderSide: BorderSide(),
-                      ),
-                    ),
-                    onChanged: (val) {
-                      setState(() => _bldg = val);
-                    },
-                  ),
-                ),
-              ),
-              SizedBox(height: 20),
+              SizedBox(height: 30),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.end,
@@ -173,7 +158,7 @@ class _EstablishmentSignUp2State extends State<EstablishmentSignUp2> {
                             'Back',
                             textAlign: TextAlign.center,
                             style: TextStyle(
-                              color: Theme.of(context).primaryColor,
+                              color: Theme.of(context).primaryColorLight,
                               fontFamily: 'PoppinsRegular',
                               fontWeight: FontWeight.w600,
                               fontSize: 14,
@@ -191,10 +176,10 @@ class _EstablishmentSignUp2State extends State<EstablishmentSignUp2> {
                     child: RaisedButton(
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(40.0),
-                          side:
-                              BorderSide(color: Theme.of(context).primaryColor),
+                          side: BorderSide(
+                              color: Theme.of(context).primaryColorLight),
                         ),
-                        color: Theme.of(context).primaryColor,
+                        color: Theme.of(context).primaryColorLight,
                         child: Container(
                           child: Text('Next',
                               textAlign: TextAlign.center,
@@ -209,7 +194,7 @@ class _EstablishmentSignUp2State extends State<EstablishmentSignUp2> {
                                       context,
                                       MaterialPageRoute(
                                           builder: (context) =>
-                                              EstablishmentSignUp3()))
+                                              TracerSignUp2()))
                                 }
                             }),
                   ),

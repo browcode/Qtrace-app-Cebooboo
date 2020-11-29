@@ -12,38 +12,19 @@ class _WelcomeViewState extends State<WelcomeView> {
   void initState() {
     super.initState();
     Timer(
-        Duration(seconds: 4),
+        Duration(seconds: 6),
         () => Navigator.push(
             context, MaterialPageRoute(builder: (context) => SignUp())));
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Stack(
-        children: <Widget>[
-          Container(
-            padding: EdgeInsets.only(bottom: 70),
-            child: Center(
-              child: Image.asset('assets/images/Welcome2.png',
-                  width: 530, height: 530, fit: BoxFit.contain),
-            ),
-          ),
-          Container(
-            padding: EdgeInsets.only(top: 340),
-            child: Center(
-              child:
-                  Text('QTrace!', style: Theme.of(context).textTheme.headline1),
-            ),
-          ),
-          Container(
-            padding: EdgeInsets.only(top: 405),
-            child: Center(
-              child: Text('A smarter way to deal with outbreaks',
-                  style: Theme.of(context).textTheme.headline2),
-            ),
-          ),
-        ],
+    return Container(
+      color: Colors.white,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[Image.asset('assets/images/Logo.png')],
       ),
     );
   }

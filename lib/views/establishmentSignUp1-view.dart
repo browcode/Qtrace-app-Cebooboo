@@ -1,13 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:qtrace_app/views/establishmentSignUp2-view.dart';
+import 'package:string_validator/string_validator.dart';
 
-class EstbalishmentSignUp1 extends StatefulWidget {
+class EstablishmentSignUp1 extends StatefulWidget {
   @override
-  _EstbalishmentSignUp1State createState() => _EstbalishmentSignUp1State();
+  _EstablishmentSignUp1State createState() => _EstablishmentSignUp1State();
 }
 
-class _EstbalishmentSignUp1State extends State<EstbalishmentSignUp1> {
+class _EstablishmentSignUp1State extends State<EstablishmentSignUp1> {
+  final _formKey = GlobalKey<FormState>();
+  final _formKey1 = GlobalKey<FormState>();
+  final _formKey2 = GlobalKey<FormState>();
+
+  String _estabName = '';
+  String _firstName = '';
+  String _lastName = '';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,15 +59,26 @@ class _EstbalishmentSignUp1State extends State<EstbalishmentSignUp1> {
               SizedBox(
                 height: 64,
                 child: Form(
+                  key: _formKey,
                   child: TextFormField(
                     decoration: InputDecoration(
-                      labelText: 'Contact Number',
+                      labelText: 'Establishment Name',
                       fillColor: HexColor('#EFF0F6'),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(16.0),
                         borderSide: BorderSide(),
                       ),
                     ),
+                    validator: (val) {
+                      if (val.isNotEmpty) {
+                        return null;
+                      } else {
+                        return 'Enter a Establishment Name';
+                      }
+                    },
+                    onChanged: (val) {
+                      setState(() => _estabName = val);
+                    },
                   ),
                 ),
               ),
@@ -72,6 +92,7 @@ class _EstbalishmentSignUp1State extends State<EstbalishmentSignUp1> {
               SizedBox(
                 height: 64,
                 child: Form(
+                  key: _formKey1,
                   child: TextFormField(
                     decoration: InputDecoration(
                       labelText: 'First Name',
@@ -81,6 +102,16 @@ class _EstbalishmentSignUp1State extends State<EstbalishmentSignUp1> {
                         borderSide: BorderSide(),
                       ),
                     ),
+                    validator: (val) {
+                      if (val.isNotEmpty && isAlpha(val) || val.contains(' ')) {
+                        return null;
+                      } else {
+                        return 'Enter a Valid First Name';
+                      }
+                    },
+                    onChanged: (val) {
+                      setState(() => _firstName = val);
+                    },
                   ),
                 ),
               ),
@@ -88,6 +119,7 @@ class _EstbalishmentSignUp1State extends State<EstbalishmentSignUp1> {
               SizedBox(
                 height: 64,
                 child: Form(
+                  key: _formKey2,
                   child: TextFormField(
                     decoration: InputDecoration(
                       labelText: 'Last Name',
@@ -97,6 +129,16 @@ class _EstbalishmentSignUp1State extends State<EstbalishmentSignUp1> {
                         borderSide: BorderSide(),
                       ),
                     ),
+                    validator: (val) {
+                      if (val.isNotEmpty && isAlpha(val) || val.contains(' ')) {
+                        return null;
+                      } else {
+                        return 'Enter a Valid Last Name';
+                      }
+                    },
+                    onChanged: (val) {
+                      setState(() => _lastName = val);
+                    },
                   ),
                 ),
               ),
@@ -115,9 +157,16 @@ class _EstbalishmentSignUp1State extends State<EstbalishmentSignUp1> {
                           side: BorderSide(color: Colors.grey),
                         ),
                         child: Container(
-                          child: Text('Back',
-                              textAlign: TextAlign.center,
-                              style: Theme.of(context).textTheme.bodyText1),
+                          child: Text(
+                            'Back',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: Theme.of(context).primaryColor,
+                              fontFamily: 'PoppinsRegular',
+                              fontWeight: FontWeight.w600,
+                              fontSize: 14,
+                            ),
+                          ),
                         ),
                         onPressed: () {
                           Navigator.pop(context);
@@ -140,11 +189,16 @@ class _EstbalishmentSignUp1State extends State<EstbalishmentSignUp1> {
                               style: Theme.of(context).textTheme.headline3),
                         ),
                         onPressed: () => {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) =>
-                                          EstablishmentSignUp2()))
+                              if (_formKey.currentState.validate() &&
+                                  _formKey1.currentState.validate() &&
+                                  _formKey2.currentState.validate())
+                                {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              EstablishmentSignUp2()))
+                                }
                             }),
                   ),
                   SizedBox(width: 21),

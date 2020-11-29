@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:hexcolor/hexcolor.dart';
 import 'package:qtrace_app/views/establishmentSignUp3-view.dart';
+import 'package:qtrace_app/views/tracerSignUp3-view.dart';
 
-class EstablishmentSignUp2 extends StatefulWidget {
+class TracerSignUp2 extends StatefulWidget {
   @override
-  _EstablishmentSignUp2State createState() => _EstablishmentSignUp2State();
+  _TracerSignUp2State createState() => _TracerSignUp2State();
 }
 
-class _EstablishmentSignUp2State extends State<EstablishmentSignUp2> {
+class _TracerSignUp2State extends State<TracerSignUp2> {
   final _formKey = GlobalKey<FormState>();
   final _formKey1 = GlobalKey<FormState>();
   final _formKey2 = GlobalKey<FormState>();
@@ -33,14 +33,14 @@ class _EstablishmentSignUp2State extends State<EstablishmentSignUp2> {
                 child: SizedBox(
                   width: 359.96,
                   height: 196.03,
-                  child: Image.asset('assets/images/Establishment2.png',
+                  child: Image.asset('assets/images/Tracer2.png',
                       fit: BoxFit.contain),
                 ),
               ),
               SizedBox(height: 11),
               SizedBox(
                   height: 32,
-                  child: Text('Establishment Sign Up',
+                  child: Text('Contact Tracer Sign Up',
                       style: Theme.of(context).textTheme.bodyText2)),
               SizedBox(height: 10),
               SizedBox(
@@ -52,7 +52,7 @@ class _EstablishmentSignUp2State extends State<EstablishmentSignUp2> {
               SizedBox(height: 10),
               SizedBox(
                 height: 32,
-                child: Text('Establishment Address',
+                child: Text('LGU Address',
                     style: Theme.of(context).textTheme.headline6),
               ),
               SizedBox(
@@ -62,7 +62,6 @@ class _EstablishmentSignUp2State extends State<EstablishmentSignUp2> {
                   child: TextFormField(
                     decoration: InputDecoration(
                       labelText: 'Province',
-                      fillColor: HexColor('#EFF0F6'),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(16.0),
                         borderSide: BorderSide(),
@@ -89,7 +88,6 @@ class _EstablishmentSignUp2State extends State<EstablishmentSignUp2> {
                   child: TextFormField(
                     decoration: InputDecoration(
                       labelText: 'City',
-                      fillColor: HexColor('#EFF0F6'),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(16.0),
                         borderSide: BorderSide(),
@@ -116,7 +114,6 @@ class _EstablishmentSignUp2State extends State<EstablishmentSignUp2> {
                   child: TextFormField(
                     decoration: InputDecoration(
                       labelText: 'Brgy.',
-                      fillColor: HexColor('#EFF0F6'),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(16.0),
                         borderSide: BorderSide(),
@@ -142,7 +139,6 @@ class _EstablishmentSignUp2State extends State<EstablishmentSignUp2> {
                   child: TextFormField(
                     decoration: InputDecoration(
                       labelText: 'Bldg. / Block (optional)',
-                      fillColor: HexColor('#EFF0F6'),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(16.0),
                         borderSide: BorderSide(),
@@ -173,7 +169,7 @@ class _EstablishmentSignUp2State extends State<EstablishmentSignUp2> {
                             'Back',
                             textAlign: TextAlign.center,
                             style: TextStyle(
-                              color: Theme.of(context).primaryColor,
+                              color: Theme.of(context).primaryColorLight,
                               fontFamily: 'PoppinsRegular',
                               fontWeight: FontWeight.w600,
                               fontSize: 14,
@@ -191,10 +187,10 @@ class _EstablishmentSignUp2State extends State<EstablishmentSignUp2> {
                     child: RaisedButton(
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(40.0),
-                          side:
-                              BorderSide(color: Theme.of(context).primaryColor),
+                          side: BorderSide(
+                              color: Theme.of(context).primaryColorLight),
                         ),
-                        color: Theme.of(context).primaryColor,
+                        color: Theme.of(context).primaryColorLight,
                         child: Container(
                           child: Text('Next',
                               textAlign: TextAlign.center,
@@ -209,7 +205,7 @@ class _EstablishmentSignUp2State extends State<EstablishmentSignUp2> {
                                       context,
                                       MaterialPageRoute(
                                           builder: (context) =>
-                                              EstablishmentSignUp3()))
+                                              TracerSignUp3()))
                                 }
                             }),
                   ),

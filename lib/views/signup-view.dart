@@ -7,38 +7,34 @@ class SignUp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Stack(
+      body: Container(
+        padding: EdgeInsets.symmetric(horizontal: 32),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            Container(
-              alignment: Alignment.center,
-              padding: EdgeInsets.only(bottom: 220),
-              child: Image.asset('assets/images/SignUp.png',
-                  scale: 0.97, fit: BoxFit.contain),
-            ),
-            Container(
-              alignment: Alignment.center,
-              padding: EdgeInsets.only(top: 310),
+            SizedBox(height: 45),
+            SizedBox(
+              height: 470.54,
+              width: 368,
               child:
-                  Text('QTrace!', style: Theme.of(context).textTheme.headline1),
+                  Image.asset('assets/images/SignUp.png', fit: BoxFit.contain),
             ),
-            Container(
-              alignment: Alignment.center,
-              padding: EdgeInsets.only(top: 380),
-              child: Text('A seQR way to deal with outbreaks',
-                  style: Theme.of(context).textTheme.headline2),
+            SizedBox(
+              height: 116.85,
+              width: 267,
+              child: Image.asset('assets/images/Logo.png', fit: BoxFit.contain),
             ),
-            Container(
-              alignment: Alignment.center,
-              padding: EdgeInsets.only(top: 530),
+            SizedBox(height: 21),
+            SizedBox(
+              height: 40,
+              width: 272,
               child: RaisedButton(
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(30.0),
                   ),
                   color: Theme.of(context).primaryColor,
                   child: Container(
-                    padding:
-                        EdgeInsets.symmetric(vertical: 10, horizontal: 105),
                     child: Text('Sign Up',
                         style: Theme.of(context).textTheme.headline3),
                   ),
@@ -47,9 +43,8 @@ class SignUp extends StatelessWidget {
                             MaterialPageRoute(builder: (context) => Choices()))
                       }),
             ),
-            SizedBox(height: 10),
+            SizedBox(height: 20),
             Container(
-              padding: EdgeInsets.only(top: 630),
               child: Center(
                 child: RichText(
                   text: TextSpan(
@@ -59,7 +54,7 @@ class SignUp extends StatelessWidget {
                       TextSpan(
                           text: ' Sign In',
                           style: TextStyle(
-                            color: Theme.of(context).primaryColor,
+                            color: Theme.of(context).primaryColorDark,
                             fontFamily: 'PoppinsRegular',
                             fontWeight: FontWeight.w700,
                             fontSize: 13,

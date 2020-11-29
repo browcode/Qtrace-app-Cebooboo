@@ -1,11 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:qtrace_app/views/citizenSignUp2-view.dart';
+import 'package:string_validator/string_validator.dart';
 
 class CitizenSignUp1 extends StatefulWidget {
   @override
   _CitizenSignUpState createState() => _CitizenSignUpState();
 }
+
+final _formKey = GlobalKey<FormState>();
+final _formKey1 = GlobalKey<FormState>();
+final _formKey2 = GlobalKey<FormState>();
+final _formKey3 = GlobalKey<FormState>();
+final _formKey4 = GlobalKey<FormState>();
+
+//fields to be inputted on this page
+String _firstName = '';
+String _lastName = '';
+String _day = '';
+String _month = '';
+String _year = '';
 
 class _CitizenSignUpState extends State<CitizenSignUp1> {
   @override
@@ -49,6 +63,7 @@ class _CitizenSignUpState extends State<CitizenSignUp1> {
               SizedBox(
                 height: 64,
                 child: Form(
+                  key: _formKey,
                   child: TextFormField(
                     decoration: InputDecoration(
                       labelText: 'First Name',
@@ -58,6 +73,16 @@ class _CitizenSignUpState extends State<CitizenSignUp1> {
                         borderSide: BorderSide(),
                       ),
                     ),
+                    validator: (val) {
+                      if (val.isNotEmpty && isAlpha(val) || val.contains(' ')) {
+                        return null;
+                      } else {
+                        return 'Enter a Valid First Name';
+                      }
+                    },
+                    onChanged: (val) {
+                      setState(() => _firstName = val);
+                    },
                   ),
                 ),
               ),
@@ -65,6 +90,7 @@ class _CitizenSignUpState extends State<CitizenSignUp1> {
               SizedBox(
                 height: 64,
                 child: Form(
+                  key: _formKey1,
                   child: TextFormField(
                     decoration: InputDecoration(
                       labelText: 'Last Name',
@@ -74,6 +100,16 @@ class _CitizenSignUpState extends State<CitizenSignUp1> {
                         borderSide: BorderSide(),
                       ),
                     ),
+                    validator: (val) {
+                      if (val.isNotEmpty && isAlpha(val)) {
+                        return null;
+                      } else {
+                        return 'Enter a Valid Last Name';
+                      }
+                    },
+                    onChanged: (val) {
+                      setState(() => _lastName = val);
+                    },
                   ),
                 ),
               ),
@@ -91,6 +127,7 @@ class _CitizenSignUpState extends State<CitizenSignUp1> {
                     height: 57,
                     width: 100,
                     child: Form(
+                      key: _formKey2,
                       child: TextFormField(
                         textAlign: TextAlign.center,
                         decoration: InputDecoration(
@@ -101,6 +138,18 @@ class _CitizenSignUpState extends State<CitizenSignUp1> {
                             borderSide: BorderSide(),
                           ),
                         ),
+                        validator: (val) {
+                          if ((val.isNotEmpty &&
+                              int.parse(val) >= 1 &&
+                              int.parse(val) <= 31)) {
+                            return null;
+                          } else {
+                            return 'Invalid Day';
+                          }
+                        },
+                        onChanged: (val) {
+                          setState(() => _day = val);
+                        },
                       ),
                     ),
                   ),
@@ -109,6 +158,7 @@ class _CitizenSignUpState extends State<CitizenSignUp1> {
                     width: 100,
                     height: 57,
                     child: Form(
+                      key: _formKey3,
                       child: TextFormField(
                         textAlign: TextAlign.center,
                         decoration: InputDecoration(
@@ -119,6 +169,18 @@ class _CitizenSignUpState extends State<CitizenSignUp1> {
                             borderSide: BorderSide(),
                           ),
                         ),
+                        validator: (val) {
+                          if ((val.isNotEmpty &&
+                              int.parse(val) >= 1 &&
+                              int.parse(val) <= 12)) {
+                            return null;
+                          } else {
+                            return 'Invalid Month';
+                          }
+                        },
+                        onChanged: (val) {
+                          setState(() => _month = val);
+                        },
                       ),
                     ),
                   ),
@@ -127,6 +189,7 @@ class _CitizenSignUpState extends State<CitizenSignUp1> {
                     width: 100,
                     height: 57,
                     child: Form(
+                      key: _formKey4,
                       child: TextFormField(
                         textAlign: TextAlign.center,
                         decoration: InputDecoration(
@@ -137,6 +200,18 @@ class _CitizenSignUpState extends State<CitizenSignUp1> {
                             borderSide: BorderSide(),
                           ),
                         ),
+                        validator: (val) {
+                          if ((val.isNotEmpty &&
+                              int.parse(val) >= 1900 &&
+                              int.parse(val) <= 2021)) {
+                            return null;
+                          } else {
+                            return 'Invalid Year';
+                          }
+                        },
+                        onChanged: (val) {
+                          setState(() => _year = val);
+                        },
                       ),
                     ),
                   ),
@@ -157,9 +232,16 @@ class _CitizenSignUpState extends State<CitizenSignUp1> {
                           side: BorderSide(color: Colors.grey),
                         ),
                         child: Container(
-                          child: Text('Back',
-                              textAlign: TextAlign.center,
-                              style: Theme.of(context).textTheme.bodyText1),
+                          child: Text(
+                            'Back',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: Theme.of(context).primaryColorDark,
+                              fontFamily: 'PoppinsRegular',
+                              fontWeight: FontWeight.w600,
+                              fontSize: 14,
+                            ),
+                          ),
                         ),
                         onPressed: () {
                           Navigator.pop(context);
@@ -172,20 +254,28 @@ class _CitizenSignUpState extends State<CitizenSignUp1> {
                     child: RaisedButton(
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(40.0),
-                          side:
-                              BorderSide(color: Theme.of(context).primaryColor),
+                          side: BorderSide(
+                              color: Theme.of(context).primaryColorDark),
                         ),
-                        color: Theme.of(context).primaryColor,
+                        color: Theme.of(context).primaryColorDark,
                         child: Container(
                           child: Text('Next',
                               textAlign: TextAlign.center,
                               style: Theme.of(context).textTheme.headline3),
                         ),
                         onPressed: () => {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => CitizenSignUp2()))
+                              if (_formKey.currentState.validate() &&
+                                  _formKey1.currentState.validate() &&
+                                  _formKey2.currentState.validate() &&
+                                  _formKey3.currentState.validate() &&
+                                  _formKey4.currentState.validate())
+                                {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              CitizenSignUp2()))
+                                }
                             }),
                   ),
                   SizedBox(width: 21),
